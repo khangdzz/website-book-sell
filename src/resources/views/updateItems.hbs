@@ -1,0 +1,60 @@
+<div class="body__admin">
+    <div class="grid__column-2 menu__admin-left">
+                <h3 class="dashboard">
+                    
+                    <i class="category__heading-icon fas fa-home"></i>
+                    <a href="/" class="">Dashboard</a>
+                    
+                </h3>
+                <nav class="category">
+                    <h3 class="admin__active category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon far fa-chart-bar"></i>
+                        <a href="/" class="">Thống Kê Website</a>
+                        
+                    </h3>
+                    <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-book-medical"></i>
+                        <a href="/admin/managerItems">Toàn Bộ Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        <i class="category__heading-icon fas fa-plus-circle"></i>
+                        <a href="/admin/addItems">Thêm Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-users"></i>
+                        <a href="/admin/managerUser">Quản Lí Người Dùng</a>
+                    </h3>
+                    
+                </nav>
+    </div>
+    <div class="detail__bill menu__admin-right">
+     <h2 id="update-title" >CẬP NHẬT THÔNG TIN SẢN PHẨM</h2>
+     <form  id="form__update-item" method="POST" action="/admin/update/{{this._id}}" enctype="multipart/form-data" >
+        <div class="mb-4">
+            <label class="form__update-item-label" >Tên sản phẩm</label><br>
+            <input type="text" name="name" value="{{this.name}}" class="form__update-itemnot-login-input form__update-item-name">
+        </div>
+         <div class="mb-4">
+            <label class="form__update-item-label" >Ảnh sản phẩm</label><br>
+            <input type="file" name="image"  class="not-login-input form__update-item-img">
+        </div>
+         <div class="mb-4">
+            <label class="form__update-item-label" >Giá sản phẩm</label><br>
+            <input type="text" name="priceCurrent" value="{{this.priceCurrent}}" class="not-login-input form__update-item-price">
+        </div>
+         <div class="mb-4">
+            <label class="form__update-item-label" >Số lượng sản phẩm</label><br>
+            <input type="text" name="quantity" value="{{this.quantity}}" class="not-login-input form__update-item-qty">
+        </div>
+       
+        <button type="submit" class="btn btn-primary form__update-item-btn">Cập nhật</button>
+    </form>
+    </div> 
+</div>
+<script>
+    
+
+</script>

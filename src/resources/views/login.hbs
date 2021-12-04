@@ -1,0 +1,71 @@
+<div class="register__container">
+    <div class="grid grid_backGround">
+    <h3 style="margin-left:70px;font-weight: 400; margin-bottom: 16px;">Please login to continue use application !!^^</h3>
+         <div class="auth-form auth-form-login__click">
+                <form class="auth-form__container" method="POST" action="/acount/LoginPost">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Login</h3>
+                        <span class="auth-form_switch-btn">Register</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn" name="email">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="yourPassword" placeholder="Nhập password của bạn" name="password">
+                            <i class="far fa-eye open_eye"></i>
+                            <i class="far fa-eye-slash close_eye"></i>
+                        </div>
+                        
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="" class="auth-form__help-link">Cần trợ giúp</a>
+                        </div>
+                    </div>
+                    <h3 style="text-align:center;color: red;" >{{err}}</h3>
+                    <div class="auth-form__controls">
+                        <button class="btn auth-form__controls-back btn--normal">TRỞ LẠI</button>
+                        <button class="btn btn--primary" type="submit">ĐĂNG NHẬP</button>
+
+                    </div>
+                </form>
+
+                <div class="auth-form__socials">
+
+                    <a href="" class="auth-form__socials--fb btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Login with Facebook</span>
+                    </a>
+                    <a href="" class="auth-form__socials--gg btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                        Login with Google
+
+                        </span>
+                    </a>
+                </div>
+            </div>  
+    </div>
+</div>
+<script>
+    const openEye = document.querySelector('.open_eye');
+    const closeEye = document.querySelector('.close_eye');
+    closeEye.addEventListener('click',function(e) {
+        openEye.style.display = 'block';
+        closeEye.style.display = 'none';
+        document.querySelector('#yourPassword').type="text";
+
+    })
+
+    openEye.addEventListener('click',function(e) {
+        openEye.style.display = 'none';
+        closeEye.style.display = 'block';
+        document.querySelector('#yourPassword').type="password";
+
+    })
+</script>

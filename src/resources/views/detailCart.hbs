@@ -1,0 +1,256 @@
+<div class="detail_cart">
+    <form name="form__cart" class="grid " method="POST" action="/cart/deleteInListCart"> 
+        <div class="bg-white text-dark detail_cart-title" >
+            <i class="fas fa-money-check-alt detail_cart-title-icon"></i>
+            Nhấn vào mục Mã giảm giá ở cuối trang để hưởng miễn phí vận chuyển bạn nhé!
+        </div>
+
+        <div class="detail_cart-navbar">
+            <input type="checkbox" aria-label="Checkbox for following text input" class="detail_cart-navbar-checkBox checkBoxAllProduct"  >
+            <span class="detail_cart-navbar-product">Sản Phẩm</span>
+            <span class="detail_cart-navbar-cost">Đơn giá</span>
+            <span class="detail_cart-navbar-qty">Số lượng</span>
+            <span class="detail_cart-navbar-price">Số Tiền</span>
+            <span class="detail_cart-navbar-handle">Thao tác</span>
+        </div>
+        {{#if checkState}}
+            <span class="get_id_contain-cart" style="display: none;">{{user._id}}</span>
+        {{else}}
+            <span class="get_id_contain-cart" style="display: none;">{{cartNotLogin._id}}</span>
+        {{/if}}
+
+        {{#if checkState}}
+            {{#each user.cart.items}}
+
+                <div class="detail_cart-navbar detail_cart-navbar_items ">
+                    <input type="checkbox" aria-label="Checkbox for following text input" class="detail_cart-navbar-checkBox" name="productId[]" value="{{this.productId}}">
+                    <span class="detail_cart-navbar-product detail_cart-navbar-product-item">
+                        <img src="/img/{{this.imageBook}}" alt="" class="detail_cart-navbar-product-item-img">
+                        <span class="detail_cart-navbar-product-item-name">{{this.nameBook}}</span>
+                    </span>
+                    <span class="detail_cart-navbar-cost detail_cart-navbar-cost-item">{{this.priceBook}}</span>
+                    <span class="detail_cart-navbar-qty detail_cart-navbar-qty-item">
+
+                        <a href=""  class="detail_cart-navbar-qty-item-cart btn-reduce_item">-</a>
+                        <span class="detail_cart-navbar-qty-item-cart detail_cart-navbar-qty-item-cart-qty">{{this.qty}}</span>
+                        <a href=""  class="detail_cart-navbar-qty-item-cart detail_cart-navbar-qty-item-cart-add">+</a>
+                        {{!-- <a class="detail_cart-navbar-qty-item-cart detail_cart-navbar-qty-item-cart-add">+</a> --}}
+                        <span id="get_id-in-cart" style="display: none;">{{this._id}}</span>
+                    </span>
+                    <span class="detail_cart-navbar-price detail_cart-navbar-price-item">5000$</span>
+                    <span class="detail_cart-navbar-handle detail_cart-navbar-handle-item">
+                        <a href="/cart/destroyItemCart/{{this.productId}}">Xóa</a>
+                    </span>
+                </div>
+                {{else}}
+                <img src="/img/emptyCart2.png" alt="" class="detail_cart-navbar-img__empty">
+            {{/each}}
+        {{else}}
+            {{#each cartNotLogin.cartContainer.items}}
+                <div class="detail_cart-navbar detail_cart-navbar_items ">
+                    <input type="checkbox" aria-label="Checkbox for following text input" class="detail_cart-navbar-checkBox" name="productId[]" value="{{this.productId}}">
+                    <span class="detail_cart-navbar-product detail_cart-navbar-product-item">
+                        <img src="/img/{{this.imageBook}}" alt="" class="detail_cart-navbar-product-item-img">
+                        <span class="detail_cart-navbar-product-item-name">{{this.nameBook}}</span>
+                    </span>
+                    <span class="detail_cart-navbar-cost detail_cart-navbar-cost-item">{{this.priceBook}}</span>
+                    <span class="detail_cart-navbar-qty detail_cart-navbar-qty-item">
+
+                        <a href=""  class="detail_cart-navbar-qty-item-cart btn-reduce_item">-</a>
+                        <span class="detail_cart-navbar-qty-item-cart detail_cart-navbar-qty-item-cart-qty">{{this.qty}}</span>
+                        <a href=""  class="detail_cart-navbar-qty-item-cart detail_cart-navbar-qty-item-cart-add">+</a>
+                        <span id="get_id-in-cart" style="display: none;">{{this._id}}</span>
+
+                    </span>
+                    <span class="detail_cart-navbar-price detail_cart-navbar-price-item">5000$</span>
+                    <span class="detail_cart-navbar-handle detail_cart-navbar-handle-item">
+                        <a href="/cart/destroyItemCart/{{this.productId}}">Xóa</a>
+                    </span>
+                </div>
+                 {{else}}
+                <img src="/img/emptyCart2.png" alt="" class="detail_cart-navbar-img__empty">
+
+            {{/each}}
+        {{/if}}
+
+         <div class="detail_cart-pay">
+             
+            <input type="checkbox" aria-label="Checkbox for following text input" class="detail_cart-navbar-checkBox checkBoxAll" >
+            <span class="detail_cart-pay-choose">Chọn Tất Cả ( </span>
+            <span class="detail_cart-pay-choose detail_cart-pay-choose-qty">0</span>
+            <span class="detail_cart-pay-choose">)</span>
+            <button type='submit' class="detail_cart-pay-delete" disabled="true">Xóa</button>
+    
+            <span class="detail-cart-pay-right">
+                <span class="detail_cart-pay-right_totalPrice">Tổng thanh toán (</span>
+                <span class="detail_cart-pay-right_totalPrice detail_cart-pay-right_totalPrice-pay">0</span>
+                <span class="detail_cart-pay-right_totalPrice"> Sản phẩm ):</span>
+                <span class="detail_cart-pay-right_totalPrice-until">$</span>
+                <span class="detail_cart-pay-right_totalPrice-cost">0</span>
+                <button type="submit" class="detail-product__right-buy-btn btn btn--primary" disabled="true" >Mua ngay</button>
+            </span>
+
+
+         </div>
+        
+
+
+    </form>
+      
+
+   
+</div>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    let socket = io();
+    const priceToCart = document.querySelectorAll('.detail_cart-navbar-cost-item');
+    const qtyToCart = document.querySelectorAll('.detail_cart-navbar-qty-item-cart-qty');
+    const priceQtyCart = document.querySelectorAll('.detail_cart-navbar-price-item');
+    const totalItem = document.querySelector('.detail_cart-pay-choose-qty');
+    const checkBoxTotal = document.querySelectorAll('.detail_cart-navbar-checkBox');
+    const totalChooseQty = document.querySelector('.detail_cart-pay-choose-qty');
+    const totalChooseQtyToPay = document.querySelector('.detail_cart-pay-right_totalPrice-pay');
+    const totalItemIsChecked = document.querySelector('.detail_cart-pay-right_totalPrice-cost');
+    const btndeleteItemInCart = $('.detail_cart-pay-delete');
+    const btnBuyItemInCart = $('.detail-product__right-buy-btn');   
+    const formCart = document.forms['form__cart'];
+    const checkboxAll = $('.checkBoxAll');
+    const checkboxAllProduct = $('.checkBoxAllProduct');
+    const checkboxItems = $('input[name="productId[]"]');
+    const priceEachItem = $('.detail_cart-navbar-price-item');
+    let qtyItemChoose = document.querySelectorAll('.detail_cart-navbar-qty-item-cart-qty');
+    const btnAddItem = document.querySelectorAll('.detail_cart-navbar-qty-item-cart-add');
+    const btnReduceItem = document.querySelectorAll('.btn-reduce_item');
+   
+    const getIdInCart = document.querySelectorAll('#get_id-in-cart');
+    let containCart = document.querySelector('.get_id_contain-cart');
+    containCart = containCart.textContent ; 
+    let pos= 0;
+    let lose = 0;
+    //add item to cart
+    for(let i =0 ; i< btnAddItem.length ; i++){
+        btnAddItem[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            let qtyChange = parseInt(qtyItemChoose[i].textContent);
+            let idItemChange = getIdInCart[i].textContent;
+            pos = i;
+            socket.emit('changeQtyInCart', {qtyChange, idItemChange, containCart}); 
+
+        })
+
+    }
+    // navigate item from cart
+    for(let i =0 ; i< btnAddItem.length ; i++){
+        btnReduceItem[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            let qtyChange = parseInt(qtyItemChoose[i].textContent);
+            let idItemChange = getIdInCart[i].textContent;
+            lose = i;
+            socket.emit('changeQtyInCartReduce', {qtyChange, idItemChange, containCart}); 
+            
+
+
+        })
+
+    }
+    // handle add item to cart by socketIO 
+    socket.on('changeQtyInCart', function(val){
+        priceQtyCart[pos].textContent = priceToCart[pos].textContent*val;
+        priceToCart[pos].textContent = priceToCart[pos].textContent ;
+        qtyItemChoose[pos].innerHTML = val;
+    })
+    //handle lose item from cart by socketIO
+    socket.on('changeQtyInCartReduce', function(val){
+        priceQtyCart[lose].textContent = priceToCart[lose].textContent*val;
+        priceToCart[lose].textContent = priceToCart[lose].textContent ;
+        qtyItemChoose[lose].innerHTML = val;
+    })
+
+    for(let i =0 ; i < priceToCart.length ;i++){
+        priceQtyCart[i].textContent = priceToCart[i].textContent*qtyToCart[i].textContent;
+        priceToCart[i].textContent = priceToCart[i].textContent ;
+    }
+    
+
+    checkboxAll.change(function(){
+       let isCheckboxAll = $(this).prop('checked');
+       if(isCheckboxAll){
+           checkboxItems.prop('checked',true);
+           checkboxAllProduct.prop('checked',true);
+         
+       }
+       else{
+           checkboxAllProduct.prop('checked',false);
+           checkboxItems.prop('checked',false);
+       }
+       totalChooseQty.textContent = $('input[name="productId[]"]:checked').length;
+       totalChooseQtyToPay.textContent = $('input[name="productId[]"]:checked').length;
+       let priceItemAreChecked = 0;
+       if(isCheckboxAll){
+            $.each(checkboxItems, function(index, value) {
+                priceItemAreChecked += parseInt(priceEachItem[index].textContent);
+                totalItemIsChecked.textContent = priceItemAreChecked;
+  
+        });
+            btnBuyItemInCart.prop('disabled', false);
+            btndeleteItemInCart.prop('disabled', false);
+       }else if(isCheckboxAll == false  && $('input[name="productId[]"]:checked').length == 0 ){
+            totalItemIsChecked.textContent = 0;
+            btnBuyItemInCart.prop('disabled', true);
+            btndeleteItemInCart.prop('disabled', true);
+       }
+       
+    })
+    
+    checkboxItems.change(function(index){
+        let isCheckboxItems = checkboxItems.length === $('input[name="productId[]"]:checked').length;
+        checkboxAll.prop('checked',isCheckboxItems);
+        if($('input[name="productId[]"]:checked').length > 0)
+           checkboxAllProduct.prop('checked',true);
+        else{
+           checkboxAllProduct.prop('checked',false);
+        } 
+        totalChooseQty.textContent = $('input[name="productId[]"]:checked').length;
+        totalChooseQtyToPay.textContent = $('input[name="productId[]"]:checked').length;
+
+        //caculate total price of item checked   
+        let priceItemAreChecked = 0;
+        $.each(checkboxItems, function(index, value) {
+            if(checkboxItems[index].checked) {
+               
+                priceItemAreChecked += parseInt(priceEachItem[index].textContent);
+                totalItemIsChecked.textContent = priceItemAreChecked;
+                
+
+            }
+            else if($('input[name="productId[]"]:checked').length == 0 ){
+                totalItemIsChecked.textContent = 0;
+                
+            }        
+        })
+        
+        
+        if($('input[name="productId[]"]:checked').length > 0 ){
+            btnBuyItemInCart.prop('disabled', false);
+            btndeleteItemInCart.prop('disabled', false);
+        }
+        else{
+            btnBuyItemInCart.prop('disabled', true);
+            btndeleteItemInCart.prop('disabled', true);
+        }
+	    
+	    
+    })
+
+    btnBuyItemInCart.click(function(){
+        formCart.action = '/cart/buyItemChoosed';
+    })
+    
+
+
+
+</script>
+        

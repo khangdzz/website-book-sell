@@ -1,0 +1,101 @@
+<div class="body__admin">
+    <div class="grid__column-2 menu__admin-left">
+                <h3 class="dashboard">
+                    
+                    <i class="category__heading-icon fas fa-home"></i>
+                    <a href="" class="">Dashboard</a>
+                    
+                </h3>
+                <nav class="category">
+                    <h3 class="admin__active category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon far fa-chart-bar"></i>
+                        <a href="/" class="">Thống Kê Website</a>
+                        
+                    </h3>
+                    <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-book-medical"></i>
+                        <a href="/admin/managerItems">Toàn Bộ Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        <i class="category__heading-icon fas fa-plus-circle"></i>
+                        <a href="/admin/addItems">Thêm Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-users"></i>
+                        <a href="/admin/managerUser">Quản Lí Người Dùng</a>
+                    </h3>
+                    
+                </nav>
+    </div>
+    <div class="detail__bill menu__admin-right">
+     <h2 id="update-title" >THÊM SẢN PHẨM MỚI</h2>
+     <form  id="form__update-item" method="POST" action="/admin/add" enctype="multipart/form-data" >
+        <div class="mb-4">
+            
+            <label class="form__update-item-label" >Tên sản phẩm</label><br>
+            <input type="text" name="name"  class="form__update-item not-login-input form__update-item-name">
+        </div>
+        <div class="mb-4">
+            <label class="form__update-item-label">Miêu tả sản phẩm</label><br>
+           
+            <textarea class="not-login-input-discription form__update-item-discription" name="description" rows="4" cols="76"></textarea>
+
+        </div>
+        <div class="mb-4">
+            <label class="form__update-item-label" >Tên tác giả</label><br>
+            <input type="text" name="nameAuthor"  class="not-login-input form__update-item-img">
+        </div>
+        <div class="mb-4">
+            <label class="form__update-item-label" >Nơi xuất bản</label><br>
+            <input type="text" name="publicLocation"  class="not-login-input form__update-item-img">
+        </div>
+
+        <div class="mb-4">
+            <label class="form__update-item-label" >Ảnh sản phẩm</label><br>
+            <input type="file" name="image"  class="not-login-input form__update-item-img">
+        </div>
+         <div class="mb-4">
+            <label class="form__update-item-label" >Giá sản phẩm cũ</label><br>
+            <input type="text" name="priceOld"  class="not-login-input form__update-item-price">
+        </div>
+        <div class="mb-4">
+            <label class="form__update-item-label" >Giá sản phẩm</label><br>
+            <input type="text" name="priceCurrent"  class="not-login-input form__update-item-price">
+        </div>
+         <div class="mb-4">
+            <label class="form__update-item-label" >Số lượng sản phẩm</label><br>
+            <input type="text" name="quantity"  class="not-login-input form__update-item-qty">
+        </div>
+        <div class="mb-4">
+            <label class="form__update-item-label" >Chọn loại sản phẩm</label><br>
+
+            <select class="form-select" aria-label="Default select example" name="kindBook">
+                <option selected>Lựa chọn loại sách</option>
+                
+                <option value="program">Sách lập trình</option>
+                <option value="VH">Sách văn học</option>
+                <option value="toan">Sách toán học</option>
+                <option value="BC">Báo chí</option>
+                <option value="nn">Sách nước ngoài</option>
+                <option value="truyen">Truyện ma</option>
+                <option value="ct">Truyện cổ tích</option>
+                <option value="nt">Truyện ngôn tình</option>
+                <option value="hh">Truyện hài hước</option>
+                <option value="na">Sách nấu ăn</option>
+                <option value="kd">Sách kinh doanh</option>
+                <option value="kt">Sách kinh tế </option>
+                <option value="ls">Sách sử học</option>
+                <option value="vd">Sách gì cũng được</option>
+                
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary form__update-item-btn">Thêm</button>
+    </form>
+    </div> 
+</div>
+<script>
+   
+</script>

@@ -1,0 +1,69 @@
+  
+
+  <div class="register__container">
+      <div class="grid grid_backGround">
+      <div class="auth-form auth-form-register__click">
+                <form class="auth-form__container" method="POST" action="/acount/registerPost">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Register</h3>
+                        <span class="auth-form_switch-btn">Login</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                         <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Tên của bạn" name="name">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn" name="email">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập password của bạn" name="password">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại password của bạn" name="rewritePassword">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí của bạn, bạn đồng ý với chúng tôi về
+                            <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                        </p>
+                         <p class="auth-form__policy-text">
+                             
+                           <span id="err_resgister-fail" style="display: none;">{{err}}</span>
+                        </p>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button  id="back-main-home" class="btn auth-form__controls-back btn--normal">TRỞ LẠI</button>
+                        <button  type="submit" class="btn btn--primary">ĐĂNG KÍ</button>
+
+                    </div>
+                </form>
+
+                <div class="auth-form__socials">
+
+                    <a href="" class="auth-form__socials--fb btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="" class="auth-form__socials--gg btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">
+                        Kết nối với Google
+
+                        </span>
+                    </a>
+                </div>
+            </div>
+  </div>
+
+  </div>     
+<script>
+    const catchErr = document.querySelector('#err_resgister-fail');
+    if(catchErr.textContent){
+        alert('Tài khoản đã tồn tại');
+    }
+</script>

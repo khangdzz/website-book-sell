@@ -1,0 +1,259 @@
+<form class="container__buyItemChoosed" method="POST" action='/cart/storeBill'>
+    {{#if checkState}}
+        <div class="grid container__buyItemChoosed-content">
+
+            <div class="container__buyItemChoosed-address">
+                <div id="animation-examples">
+                    <div class="animation-examples one">
+                        <h2 class="container__buyItemChoosed-address-title">
+                            <i class="container__buyItemChoosed-address-icon fas fa-map-marker-alt"></i>
+                            Địa chỉ nhận hàng
+                        </h2>
+                        <div class="container__buyItemChoosed-address-infor">
+                            <span class="container__buyItemChoosed-address-namePhone"> 
+                                <span><b class="privateInfor">{{fullName}}</b></span>
+                                <span><b class="privateInfor">(+84) {{phoneNumber}}</b></span>
+                            </span>
+                            <span class="container__buyItemChoosed-address-detail">
+                                {{!-- nhà văn hóa 2, ngõ 80, đường xuân phương, Phường Minh Khai, Quận Bắc Từ Liêm, Hà Nội --}}
+                             <b>Địa chỉ :</b>   
+                             <b class="privateInfor">{{address}}</b>   
+                            </span>
+                        </div>    
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    {{/if}}
+    <div class="grid container__buyItemChoosed-listItems">
+            <div class="container__buyItemChoosed-listItems-narbar">
+                <span class="container__buyItemChoosed-listItems-name">Sản phẩm</span>
+                <span class="container__buyItemChoosed-listItems-untilPrice">Đơn giá</span>
+                <span class="container__buyItemChoosed-listItems-qty">Số lượng</span>
+                <span class="container__buyItemChoosed-listItems-totalPrice">Thành tiền</span>
+            </div>
+            <div class="container__buyItemChoosed-listItems-nameStore">
+                <i class="container__buyItemChoosed-listItems-nameStore-icon fas fa-book"></i>
+                Fourteen Book Store
+                </div> 
+            {{#if checkState}}
+                {{#each items}}
+                    <div class="container__buyItemChoosed-listItems-stock">
+                        <input style="display: none;"  class="detail_cart-navbar-checkBox" name="productId[]" value="{{this.productId}}">
+
+                        <div class="container__buyItemChoosed-listItems-infor">
+                            <span class="container__buyItemChoosed-listItems-infor_left">
+                                <img src="/img/{{this.imageBook}}" alt="" class="container__buyItemChoosed-listItems-img">
+                                <span class="container__buyItemChoosed-listItems-nameDetail">{{this.nameBook}}</span>
+                            </span>
+                            <span class="container__buyItemChoosed-listItems-untilPriceDetail">
+                                <span class="container__buyItemChoosed-listItems-untilPriceDetail-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-untilPriceDetail-qty">{{this.priceBook}}</span>
+                            </span>
+                            <span class="container__buyItemChoosed-listItems-qtyDetail">{{this.qty}}</span>
+                            <span class="container__buyItemChoosed-listItems-totalPriceDetail">
+                                <span class="container__buyItemChoosed-listItems-totalPriceDetail-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-totalPriceDetail-qty">10000</span>
+                            </span>
+
+                        </div>
+                        <div class="container__buyItemChoosed-listItems-reminder">
+                            <div class="container__buyItemChoosed-listItems-reminder-left">
+                                <span class="container__buyItemChoosed-listItems-reminder-title">Lời nhắn :</span>
+                                <input type="text" name="reminder" placeholder='Lưu ý cho người bán !' class="container__buyItemChoosed-listItems-reminder-infor">
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-between">
+
+                                <div class="container__buyItemChoosed-listItems-reminder-delivery">Đơn vị vận chuyển</div>
+                                <div class="container__buyItemChoosed-listItems-reminder-untilDelivery">
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p">Nhanh</p>
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p1">Thời gian tất cả các ngày trong tuần</p>
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p2">(Do ảnh hưởng của dịch COVID19 , giao hàng co thể chậm hơn 1-5 ngày)</p>
+                                </div>
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-between1">
+                                <p href="" class="container__buyItemChoosed-listItems-reminder-between1-change">THAY ĐỔI</p>
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-priceFree">
+                                <span class="container__buyItemChoosed-listItems-reminder-priceFree-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-reminder-priceFree-qty">30</span>
+                            </div>
+                        </div>
+
+                        <div class="container__buyItemChoosed-totalprice-ship-item-choosed">
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title">Tổng số tiền (</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title-qty">1</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title"> sản phẩm):</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed--price">
+                                <span class="price-until-item">$</span>
+                                <span class="price-until-qty">100000</span>
+                            </span>
+                        </div>
+
+                    </div>
+                {{/each}}
+            {{else}}
+                {{#each items}}
+                    <div class="container__buyItemChoosed-listItems-stock">
+                        <input style="display: none;"  class="detail_cart-navbar-checkBox" name="productId[]" value="{{this.productId}}">
+
+                        <div class="container__buyItemChoosed-listItems-infor">
+                            <span class="container__buyItemChoosed-listItems-infor_left">
+                                <img src="/img/{{this.imageBook}}" alt="" class="container__buyItemChoosed-listItems-img">
+                                <span class="container__buyItemChoosed-listItems-nameDetail">{{this.nameBook}}</span>
+                            </span>
+                            <span class="container__buyItemChoosed-listItems-untilPriceDetail">
+                                <span class="container__buyItemChoosed-listItems-untilPriceDetail-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-untilPriceDetail-qty">{{this.priceBook}}</span>
+                            </span>
+                            <span class="container__buyItemChoosed-listItems-qtyDetail">{{this.qty}}</span>
+                            <span class="container__buyItemChoosed-listItems-totalPriceDetail">
+                                <span class="container__buyItemChoosed-listItems-totalPriceDetail-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-totalPriceDetail-qty">10000</span>
+                            </span>
+
+                        </div>
+                        <div class="container__buyItemChoosed-listItems-reminder">
+                            <div class="container__buyItemChoosed-listItems-reminder-left">
+                                <span class="container__buyItemChoosed-listItems-reminder-title">Lời nhắn :</span>
+                                <input type="text" name="reminder" placeholder='Lưu ý cho người bán !' class="container__buyItemChoosed-listItems-reminder-infor">
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-between">
+
+                                <div class="container__buyItemChoosed-listItems-reminder-delivery">Đơn vị vận chuyển</div>
+                                <div class="container__buyItemChoosed-listItems-reminder-untilDelivery">
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p">Nhanh</p>
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p1">Thời gian tất cả các ngày trong tuần</p>
+                                    <p class="container__buyItemChoosed-listItems-reminder-untilDelivery-p2">(Do ảnh hưởng của dịch COVID19 , giao hàng co thể chậm hơn 1-5 ngày)</p>
+                                </div>
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-between1">
+                                <p href="" class="container__buyItemChoosed-listItems-reminder-between1-change">THAY ĐỔI</p>
+                            </div>
+                            <div class="container__buyItemChoosed-listItems-reminder-priceFree">
+                                <span class="container__buyItemChoosed-listItems-reminder-priceFree-until">$</span>
+                                <span class="container__buyItemChoosed-listItems-reminder-priceFree-qty">30</span>
+                            </div>
+                        </div>
+
+                        <div class="container__buyItemChoosed-totalprice-ship-item-choosed">
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title">Tổng số tiền (</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title-qty">1</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed-title"> sản phẩm):</span>
+                            <span class="container__buyItemChoosed-totalprice-ship-item-choosed--price">
+                                <span class="price-until-item">$</span>
+                                <span class="price-until-qty">100000</span>
+                            </span>
+                        </div>
+
+                    </div>
+                {{/each}}
+                
+                <div class="container_information">
+                    
+                    <h3 class='enter-name_to-call'>
+                        <i class="enter-name_to-call-icon fas fa-phone-volume"></i>
+                        Nhập thông tin để liên hệ 
+                    </h3>
+                    
+                    <div class="name_not-login">
+                        <span class="name_not-login-title">Họ và Tên</span>
+                        <input type="text" name="name" class="not-login-input not-login-input-name">
+                    </div>
+                    <div class="phone_not-login">
+                        <span class="phone_not-login-title">Số điện thoại</span>
+                        <input type="text" name="phoneNumber" class="not-login-input not-login-input-phone">
+                    </div>
+
+                    <div class="address_not-login">
+                        <span class="address_not-login-title">Địa chỉ</span>
+                        {{!-- <input type="text" name="phoneNumber" class="not-login-input not-login-input-phone"> --}}
+                        <textarea class="not-login-input-address" name="address" rows="4" cols="76"></textarea>
+
+                    </div>
+                </div>
+                
+               
+                
+                
+               
+              
+            {{/if}}
+           
+    </div>
+    <div class="grid container__buyItemChoosed-order">
+        <p class="container__buyItemChoosed-totalItemCose">
+            <span class="container__buyItemChoosed-totalItemCose-title">Tổng tiền hàng</span>
+            <span class="container__buyItemChoosed-totalItemCose-cost">
+                <span class="container__buyItemChoosed-totalItemCose-cost1">$</span>
+                <span class="container__buyItemChoosed-totalItemCose-cost2">0</span>
+            </span>
+        </p>
+        <p class="container__buyItemChoosed-totalShip">
+            <span class="container__buyItemChoosed-totalShip-title">Tổng tiền ship</span>
+            <span class="container__buyItemChoosed-totalShip-cost">
+                <span class="container__buyItemChoosed-totalShip-cost1">$</span>
+                <span class="container__buyItemChoosed-totalShip-cost2">0</span>
+            </span>
+        </p>
+        <p class="container__buyItemChoosed-totalPaying">
+            <span class="container__buyItemChoosed-totalPaying-title">Tổng tiền phải trả</span>
+            <span class="container__buyItemChoosed-totalPaying-cost">
+                
+                <span class="container__buyItemChoosed-totalPaying-cost1">$</span>
+                <span class="container__buyItemChoosed-totalPaying-cost2">0</span>
+
+            </span>
+        </p>
+    </div>
+     <div class="grid container__buyItemChoosed-btn">
+         <span class="container__buyItemChoosed-btn-rules">
+             Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản Của <span>Fourteen Book Store</span>
+         </span>
+         <span class="container__buyItemChoosed-btn-order">
+             <button id="buyItemChoosed" type="submit" class="btn btn--primary">Đặt hàng</button>
+         </span>
+     </div>
+</form>
+
+<script>
+    const qtyChoosedBuying = document.querySelectorAll('.container__buyItemChoosed-listItems-qtyDetail');
+    const costChoosedBuying = document.querySelectorAll('.container__buyItemChoosed-listItems-untilPriceDetail-qty');
+    const totalItemchoosed = document.querySelectorAll('.container__buyItemChoosed-listItems-totalPriceDetail-qty');
+    const totalItemschoosedNotShip = document.querySelector('.container__buyItemChoosed-totalItemCose-cost2');
+    const totalShipItemChoosed = document.querySelector('.container__buyItemChoosed-totalShip-cost2');
+    const totalCostBuy = document.querySelector('.container__buyItemChoosed-totalPaying-cost2');
+    
+    let inforUser = document.querySelectorAll('.privateInfor');
+    const btnChoosedItemBuy = document.querySelector('#buyItemChoosed');
+    
+    const costItemShip = document.querySelectorAll('.container__buyItemChoosed-listItems-reminder-priceFree-qty');
+    const totalPriceItemAndShip = document.querySelectorAll('.price-until-qty');
+    
+   for(let i =0 ; i< totalItemchoosed.length ; i++){
+       totalItemchoosed[i].textContent = qtyChoosedBuying[i].textContent * costChoosedBuying[i].textContent;
+       totalPriceItemAndShip[i].textContent = parseInt(totalItemchoosed[i].textContent) + parseInt(costItemShip[i].textContent);
+       totalShipItemChoosed.textContent =parseInt(totalShipItemChoosed.textContent)+ parseInt(costItemShip[i].textContent);
+       totalItemschoosedNotShip.textContent= parseInt(totalItemschoosedNotShip.textContent) + parseInt(totalItemchoosed[i].textContent);
+   }
+   
+    for(let i = 0; i < inforUser.length ; i++){
+        if(inforUser[i].textContent){
+
+        
+        }else{
+            btnChoosedItemBuy.addEventListener('click',function(e){
+               e.preventDefault();
+               alert('Vui lòng cập nhật thông tin cá nhân trước khi đặt hàng');
+            })
+            
+        }
+    }
+
+
+   totalCostBuy.textContent =  parseInt(totalShipItemChoosed.textContent) + parseInt(totalItemschoosedNotShip.textContent);
+
+
+    
+</script>

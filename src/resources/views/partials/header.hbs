@@ -1,0 +1,340 @@
+ <header class="header">
+            
+            <div class="grid">
+
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                            Vào cửa hàng trên ứng dụng BookStore
+                            <div class="header__qr">
+                                <img src="/img/qaCode.png" alt="" class="header__qr-img">
+                                <div class="header__qr-apps">
+                                    <a href="" class="header__qr-link">
+                                        <img src="/img/googlePlay.png" alt="" class="header__qr-dowload-img">
+                                    </a>
+                                    <a href="" class="header__qr-link">
+                                        <img src="/img/anh1.png" alt="" class="header__qr-dowload-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <span class="header__navbar-title--no-pointer">Kết nối</span>
+                            <a href="" class="header__navbar-icon-link"><i class="header__navbar-icon fab fa-facebook"></i></a>
+                            <a href="" class="header__navbar-icon-link"><i class="header__navbar-icon fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+    
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--has-notify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fas fa-bell"></i>
+                                {{#if checkState}}
+                                <span class="qty__infor">10</span>
+                                {{/if}}
+                                Thông Báo
+                            </a>
+                             <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông báo mới nhận</h3>
+                                </header>
+                                <ul class="header__notify-list">
+                                   <li class="header__notify-item header__notify-item-view">
+                                    <a href="" class="header__notify-link">
+                                        <img src="/img/anh2.jpg" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mĩ phẩm chính hãng</span>
+                                            <span class="header__notify-description">Mô tả mĩ phẩm chính hãng</span>
+
+                                        </div>
+
+                                    </a>
+                                   </li>
+
+                                   <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="/img/anh2.jpg" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mĩ phẩm chính hãng</span>
+                                            <span class="header__notify-description">Mô tả mĩ phẩm chính hãng</span>
+
+                                        </div>
+
+                                    </a>
+                                   </li>
+
+                                   <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="/img/anh2.jpg" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mĩ phẩm chính hãng</span>
+                                            <span class="header__notify-description">Mô tả mĩ phẩm chính hãng</span>
+
+                                        </div>
+
+                                    </a>
+                                   </li>
+
+                                   <li class="header__notify-item">
+                                    <a href="" class="header__notify-link">
+                                        <img src="/img/anh2.jpg" alt="" class="header__notify-img">
+                                        <div class="header__notify-info">
+                                            <span class="header__notify-name">Mĩ phẩm chính hãng</span>
+                                            <span class="header__notify-description">Mô tả mĩ phẩm chính hãng</span>
+
+                                        </div>
+
+                                    </a>
+                                   </li>
+                                </ul>
+                                <footer class="header__notify-footer">
+                                    <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                </footer>
+                             </div>   
+
+                             
+
+
+
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-question-circle"></i>
+                                Trợ Giúp
+                            </a>
+                        </li>
+
+                        {{#if checkState}}
+                             <div class="title-logined">
+                                <li class="header__navbar-item header__navbar-user">
+
+                                    {{#if imageAvatar}}
+                                        <img src="/img/{{imageAvatar}}" alt="" class="header__navbar-user-img">
+                                    {{else}}
+                                        <img src="/img/avartarEmpty.jpg" alt="" class="header__navbar-user-img">
+                                    {{/if}}
+                                    <span class="header__navbar-user-name">{{fullName}}</span>
+
+                                    <ul class="header__navbar-user-menu">
+                                        <li class="header__navbar-user-item">
+                                            <a href="/acount">Tài khoản của tôi</a>
+                                        </li>
+                                        <li class="header__navbar-user-item">
+                                            <a href="/acount/invoice">Đơn mua</a>
+                                        </li>
+                                        <li class="header__navbar-user-item">
+                                            <a href="/acount/logOut">Đăng xuất</a>
+                                        </li>
+                                    </ul>
+
+                                </li> 
+                            </div>
+                        {{else}}
+                            <div class="title-login">
+                                <li id="btn-register" class="header__navbar-item header__navbar-item--strong header__navbar-item--separate"> Đăng kí</li>
+                                <li id="btn-login" class="header__navbar-item header__navbar-item--strong"> Đăng Nhập</li> 
+                            </div>
+                        {{/if}}
+
+
+
+                      
+
+                      
+                         
+                    </ul>
+                </nav>
+
+                <div class="header-with-search">
+                    <div class="header_logo">
+                      
+                        <a href="/">
+                            <img src="/img/logoTeam.jpg" alt="khangakhangasf" class="header_logo-img">
+                        </a>
+                    </div>
+
+                    <form  class="header__search" method="POST" action="/searchBook">
+                        <div class="header__search-input-wrap">
+                            
+                            <input autocomplete="off" name="nameBook" type="text" class="header__search-input" placeholder="Enter the keyword want to search" onkeyup="searchFunction()" >
+                            
+                            <!-- history -->
+                            <span style="display: none;" class="list__name-use-search">{{names}}</span>
+                            <div class="header__search-history">
+                                <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                <ul class="header__search-history-list">
+                                    {{!-- <li class="header__search-history-item">
+                                        <a href="">{{getListNameBook.name}}</a>
+                                    </li>
+                                    {{#each getListNameBook}}
+                                    <li class="header__search-history-item">
+                                        <a href="">{{names}}</a>
+                                    </li>
+                                    {{/each}} --}}
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header__search-select">
+                            <span class="header__search-select-label">Trong shop</span>
+                            <i class="header__search-select-icon fas fa-angle-down"></i>
+
+                            <ul class="header__search-option">
+                                    <li class="header__search-option-item header__search-option-item--active">
+                                        <span>Trong shop</span>
+                                        <i class="fas fa-check"></i>
+                                    </li>
+                                    <li class="header__search-option-item">
+                                        <span>Ngoài shop</span>
+                                        <i class="fas fa-check"></i>
+                                    </li>
+                            </ul>
+
+                        </div>
+                        <button type="submit" class="header__search-btn" >
+                            <i class="header__search-btn-icon fas fa-search"></i>
+                        </button>
+                    </form>
+                    <!-- layout cart -->
+                    <div class="header__cart">
+
+                        <div class="header__cart-wrap">
+                            <a href="/cart/detailCart">
+                                <i class="header__cart-icon fas fa-shopping-cart"></i>
+                                <span class="header__cart-notice">0</span>
+                            </a>
+                            <!--no cart: header__cart-list--no-cart -->
+                            <div class="header__cart-list ">
+    
+                                <img src="/img/no_cart.png" alt="no-cart-empty" class="header__cart-no-cart-img">
+                                <span class="header__cart-list-no-cart-msg">Chưa có sản phẩm</span>
+                                
+                                <!-- có sản phẩm -->
+                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                <ul class="header__cart-list-item">
+                                    <!-- cart item -->
+                                    {{#if checkState}}
+                                        {{#each user.cart.items}}
+                                            <li class="header__cart-item">
+                                                <img src="/img/{{this.imageBook}}" alt="image" class="header__cart-img">
+                                                <div class="header__cart-item-infor">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">{{this.nameBook}}</h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">{{{this.priceBook}}}$</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-qnt">{{this.qty}}</span>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-discription">{{this.discriptionBook}}</span>
+                                                        <a href="/cart/destroyItemCart/{{this.productId}}" class="header__cart-item-remove">Xóa</a>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        {{/each}}
+                                    {{else}}
+                                         {{#each cartNotLogin.cartContainer.items}}
+                                            <li class="header__cart-item">
+                                                <img src="/img/{{this.imageBook}}" alt="image" class="header__cart-img">
+                                                <div class="header__cart-item-infor">
+                                                    <div class="header__cart-item-head">
+                                                        <h5 class="header__cart-item-name">{{this.nameBook}}</h5>
+                                                        <div class="header__cart-item-price-wrap">
+                                                            <span class="header__cart-item-price">{{{this.priceBook}}}$</span>
+                                                            <span class="header__cart-item-multiply">x</span>
+                                                            <span class="header__cart-item-qnt">{{this.qty}}</span>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="header__cart-item-body">
+                                                        <span class="header__cart-item-discription">{{this.discriptionBook}}</span>
+                                                        <a href="/cart/destroyItemCart/{{this.productId}}" class="header__cart-item-remove">Xóa</a>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        {{/each}}
+                                    {{/if}}
+                                   
+
+
+                                </ul>
+                                <a href="/cart/detailCart" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            
+            const register = document.getElementById('btn-register');
+            const login = document.getElementById('btn-login');
+            const cartQuantity = document.querySelectorAll('.header__cart-item');
+            const container_cart =$('.header__cart-list-item');
+            const count_cart = document.querySelector('.header__cart-notice');
+            const listName = document.querySelector('.list__name-use-search');
+            const container_search = document.querySelector('.header__search-history-list');
+            const input__search = document.querySelector('.header__search-input');
+            
+         
+
+            let arrListName = listName.textContent.split(',');
+            function searchFunction(){
+                let dem = 0; 
+                container_search.innerHTML = '';
+                
+                arrListName.map( (name) =>{
+                    if(name.includes(input__search.value) && input__search.value != ''){
+                        container_search.innerHTML += `
+                            <li class="header__search-history-item">
+                                <a onmouseover="mouseOver(${dem})" class='search_book_home' href="/book/searchBook">${name}</a>
+                            </li>
+                        `;
+                        dem++;
+                        
+                    }
+                })
+
+                if(input__search.value == '' || $('.header__search-history-item').length == 0){
+                    container_search.innerHTML += `
+                            <li class="header__search-history-item">
+                                <a href="">Không có kết quả tìm kiếm !!</a>
+                            </li>
+                        `;
+                } 
+                
+            }
+
+           
+            function mouseOver(index){
+                var searchNameIndex = document.querySelectorAll('.search_book_home');
+                input__search.value = searchNameIndex[index].textContent;
+             
+            }
+
+            count_cart.innerHTML = cartQuantity.length;
+            
+
+            if(register != null && login != null) {
+
+                login.onclick = function (){
+                    location.href ='/acount/login';
+                }
+
+                register.onclick = function(res,req,next) {
+                location.href ='/acount/register';
+                }
+            }
+
+
+
+        </script>
+        

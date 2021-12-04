@@ -1,0 +1,134 @@
+<div class="body__admin">
+    <div class="grid__column-2 menu__admin-left">
+                <h3 class="dashboard">
+                    
+                    <i class="category__heading-icon fas fa-home"></i>
+                    <a href="/" class="">Dashboard</a>
+                    
+                </h3>
+                <nav class="category">
+                    <h3 class="admin__active category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon far fa-chart-bar"></i>
+                        <a href="/" class="">Thống Kê Website</a>
+                        
+                    </h3>
+                    <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-book-medical"></i>
+                        <a href="/admin/managerItems">Toàn Bộ Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        <i class="category__heading-icon fas fa-plus-circle"></i>
+                        <a href="/admin/addItems">Thêm Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-users"></i>
+                        <a href="/admin/managerUser">Quản Lí Người Dùng</a>
+                    </h3>
+                    
+                </nav>
+    </div>
+    <div class="detail__bill menu__admin-right">
+        <div class="detail__bill-top">
+
+            <div class="detail__bill-title">CHI TIẾT HÓA ĐƠN MUA CỦA KHÁCH HÀNG <span class="detail__bill-title-name">{{bill.name}}</span></div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Order ID</span>
+                <span class="detail_bill-infor-client-value">{{bill._id}}</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Họ và Tên</span>
+                <span class="detail_bill-infor-client-value">{{bill.name}}</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Số điện Thoại</span>
+                <span class="detail_bill-infor-client-value">{{bill.phoneNumber}}</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Ngày đặt hàng</span>
+                <span class="detail_bill-infor-client-value">{{bill.created_at}}</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Địa chỉ giao hàng</span>
+                <span class="detail_bill-infor-client-value">{{bill.address}}</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Phương thức vận chuyển</span>
+                <span class="detail_bill-infor-client-value">Vận chuyển nhanh(3 ngày)</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Chi phí vận chuyển</span>
+                <span class="detail_bill-infor-client-value" id="price_ship-to-address">30</span>
+                <span>$</span>
+            </div>
+            <div class="detail_bill-infor-client">
+                <span class="detail_bill-infor-client-title">Trạng thái đơn hàng</span>
+                {{#if bill.delivery}}
+                    <span class="detail_bill-infor-client-value check__ordered-status">Đơn hàng đã xác nhận</span>
+                {{else}}
+                    <span class="detail_bill-infor-client-value check__ordered-status">Đang xử lí</span>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="detail__bill-bottom">
+           <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col" class="detail__bill-bottom-title">Hình ảnh</th>
+                    <th scope="col" class="detail__bill-bottom-title">Tên sản phẩm</th>
+                    <th scope="col" class="detail__bill-bottom-title">Số lượng</th>
+                    <th scope="col" class="detail__bill-bottom-title">giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each bill.cart.items}}
+                        <tr class="list_product_order">
+                        
+                            <td class="detail__bill-bottom-value-image">
+                                <img src="/img/{{this.imageBook}}" alt="" class="detail__bill-bottom-value-img">
+                            </td>
+                            <td class="detail__bill-bottom-value-name">{{this.nameBook}}</td>
+                            <td class="detail__bill-bottom-value-qty">{{this.qty}}</td>
+                            <td class="detail__bill-bottom-value-price">{{this.priceBook}}$</td>
+                        </tr>
+                    {{/each}}
+                    
+                </tbody>
+            </table>
+            <div class="detail__bill-bottom-product-totalPrice">
+                <span><b>Tổng số tiền: </b></span>
+                <span><b>{{bill.cart.price}}</b></span>
+                <span>$</span>
+                <span>(Đã bao gồm phí ship)</span>
+            </div>
+        </div>
+
+        <div class="btn_come-back__home-admin ">
+            <a class="btn_comfirm-btn btn " href="/admin/confirmOrder/{{bill._id}}">Xác nhận đơn hàng</a>
+            <a class="btn_come-back-btn btn " href="/">Quay lại</a>
+        </div>
+       
+    </div> 
+</div>
+<script>
+    let total_price_in_bill = document.querySelectorAll('.detail__bill-bottom-value-price');
+    const price_ship_to_Address = document.querySelector('#price_ship-to-address');
+    const qty_bookOrdered = document.querySelectorAll('.detail__bill-bottom-value-qty');
+    let checkConfirmOrdered = document.querySelector('.check__ordered-status');
+    let btnConfirm = document.querySelector('.btn_comfirm-btn');
+    
+    
+
+    
+    if(checkConfirmOrdered.textContent == 'Đơn hàng đã xác nhận'){
+        btnConfirm.style['pointer-events'] = 'none';
+    }
+    let sumPriceBook = 0;
+    for(let i = 0; i < total_price_in_bill.length; i++) {
+        sumPriceBook += parseInt(total_price_in_bill[i].textContent);
+    }
+    price_ship_to_Address.innerHTML = 30 * qty_bookOrdered.length;
+</script>

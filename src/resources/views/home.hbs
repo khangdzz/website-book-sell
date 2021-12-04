@@ -1,0 +1,317 @@
+ <!-- Container -->
+<div class="app__container">
+    <div class="grid">
+        <div class="grid__row app__content">
+
+            <div class="grid__column-2">
+                <nav class="category">
+                    <h3 class="category__heading">
+                        <i class="category__heading-icon fas fa-list"></i>
+                        Danh Mục
+                    </h3>
+                    <ul class="category-list">
+                        <li class="caterory-item caterory-item--active" value="program">
+                            <a href="" class="category-item__link">Sách Lập Trình</a>
+                        </li>
+                        <li class="caterory-item" value="VH">
+                            <a href="" class="category-item__link">Sách Văn Học</a>
+                        </li>
+                        <li class="caterory-item" value="toan">
+                            <a href="" class="category-item__link">Sách Toán Học</a>
+                        </li> 
+                        <li class="caterory-item" value="BC">
+                            <a href="" class="category-item__link">Báo Chí</a>
+                        </li> 
+                        <li class="caterory-item" value="nn">
+                            <a href="" class="category-item__link">Sách nước ngoài</a>
+                        </li>
+                        <li class="caterory-item" value="truyen">
+                            <a href="" class="category-item__link">Truyện ma</a>
+                        </li> 
+                        <li class="caterory-item" value="ct">
+                            <a href="" class="category-item__link">Truyện cổ tích</a>
+                        </li> 
+                        <li class="caterory-item" value="nt">
+                            <a href="" class="category-item__link">Truyện ngôn tình</a>
+                        </li> 
+                        <li class="caterory-item" value="hh">
+                            <a href="" class="category-item__link">Truyện hài hước</a>
+                        </li> 
+                         <li class="caterory-item" value="na">
+                            <a href="" class="category-item__link">Sách nấu ăn</a>
+                        </li> 
+                        <li class="caterory-item" value="kd">
+                            <a href="" class="category-item__link">Sách kinh doanh</a>
+                        </li> 
+                        <li class="caterory-item" value="kt">
+                            <a href="" class="category-item__link">Sách kinh tế</a>
+                        </li> 
+                        <li class="caterory-item" value="ls">
+                            <a href="" class="category-item__link">Sách sử học</a>
+                        </li> 
+                         <li class="caterory-item" value="vd">
+                            <a href="" class="category-item__link">Sách gì cũng được</a>
+                        </li> 
+
+
+
+
+
+
+
+
+                        <li style="display: none;" class="caterory-item">
+                            <a id="pageCurrent" href="" class="category-item__link">{{current}}</a>
+                        </li>
+                         <li style="display: none;" class="caterory-item">
+                            <a id="qtyPages" href="" class="category-item__link">{{pages}}</a>
+                        </li>                       
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="grid__column-10">
+                <div class="home-filter">
+                    <span class="home-filter__label">Sắp xếp theo</span>
+                    <a href="/sortPopular" class="home-filter__btn btn" >Phổ biến</a>
+                    <a href="/sortPopular" class="home-filter__btn btn btn--primary">Mới nhất</a>
+                    <a href="/sortPopular" class="home-filter__btn btn">Bán chạy</a>
+
+
+                    <div class="select-input">
+                        <span class="select-input__label">Giá</span>
+                        <i class="select-input__icon fas fa-angle-down"></i>
+                        <ul class="select-input__list">
+                            <li class="select-input__item">
+                                <a href="/sortPriceAsc" class="select-input__link">Giá thấp đến cao</a>
+                            
+                            </li>
+                            <li class="select-input__item">
+                                <a href="/sortPriceDes" class="select-input__link">Cao đến thap cao</a>
+                            
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                    <div class="home-filter__page">
+                        <span class="home-filter__page-num">
+                            <span id='index_previous' class="home-filter__page-current">1</span>/
+                            <span  class="home-filter__page-current">{{pages}}</span>
+                        </span>   
+                        
+                        <div class="home-filter__page-control">
+                            <a id='go_back' href="" class="home-filter__page-btn">
+                                <i class="home-filter__page-icon fas fa-angle-left"></i>
+
+                            </a>
+                            <a id="go_up" href="" class="home-filter__page-btn">
+                                <i class="home-filter__page-icon fas fa-angle-right"></i>
+
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="home-product">
+                    <div class="grid__row">
+                        <!-- product item -->
+
+                        {{#each book}}
+                        <div class="grid__column-2-4">
+                            <div class="home-product-item">
+                               <a href="/book/detailBook/{{this._id}}">
+                                    <div class="home-product-item__img" style="background-image: url(/img/{{this.image}});"></div>
+                               </a>
+                               
+                                
+                                <h4 class="home-product-item__nameMain" style="margin:5px 0 0 10px;">{{this.name}}</h4>
+                                <h4 class="home-product-item__name">{{this.description}}</h4>
+                                <div class="home-product-item__price">
+                                    <span class="home-product-item__price-old">{{this.priceOld}}$</span>
+                                    <span class="home-product-item__price-current">{{this.priceCurrent}}$</span>
+
+                                </div>
+
+                                <div class="home-product-item__action">
+                                    <span class="home-product-item__like home-product-item__like--liked">
+                                        <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                        <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                    </span>
+                                    <div class="home-product-item__rating">
+                                        <i class="home-product-item__gold fas fa-star"></i>
+                                        <i class="home-product-item__gold fas fa-star"></i>
+                                        <i class="home-product-item__gold fas fa-star"></i>
+                                        <i class="home-product-item__gold fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="home-product-item__sold" >88 Sold</span>
+                                    
+                                </div>
+
+                                <div class="home-product-item__origin">
+                                    <span class="home-product-item__brand">{{this.nameAuthor}}</span>
+                                    <span class="home-product-item__origin-name">{{this.publicLocation}}</span>
+                                </div>
+
+                                
+                            <a href="/cart/add/{{this._id}}" class="btn btn-primary add__to-cart" style="width: 88%;background-color: var(--primary-color);">Add to cart</a>
+                            </div>
+                        </div>
+                        
+                        {{/each}}
+
+                        
+            
+                        
+
+
+                        </div>
+                </div>
+
+
+                <ul class="pagination home-product__pagination">
+                    {{!-- <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+
+                    <li class="pagination-item pagination-item--active">
+                        <a href="" class="pagination-item__link">1</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">2</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">3</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">...</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">8</a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                    </li> --}}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    //
+    const listMenu = document.querySelectorAll('.caterory-item');
+    const listBtnMenu = document.querySelectorAll('.category-item__link');
+ 
+    let container_pagination = document.querySelector('.pagination');
+    let pageCurrent = document.querySelector('#pageCurrent');
+    let qtyPages = document.querySelector('#qtyPages');
+    let goBack = document.querySelector('#go_back');
+    let goUp = document.querySelector('#go_up');
+    let indexPrevious = document.querySelector('#index_previous');
+    
+    
+    for(let i = 0; i < listMenu.length ; i++){
+        listMenu[i].addEventListener('click',function(e){
+            //e.preventDefault();
+            document.querySelector('.caterory-item.caterory-item--active').classList.remove('caterory-item--active');
+            listMenu[i].classList.add('caterory-item--active');
+            listBtnMenu[i].setAttribute('href', `/search/${listMenu[i].getAttribute('value')}`);
+           // console.log(listMenu[i].getAttribute('value'));
+        })
+    }
+
+
+
+
+    pageCurrent = parseInt(pageCurrent.textContent);
+    qtyPages = parseInt(qtyPages.textContent);
+    let htmlPagination ; 
+    //console.log(container_pagination);
+    if(qtyPages > 0){
+        htmlPagination = ''
+        if(pageCurrent == 1){
+            htmlPagination += `
+                <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                </li>
+            `
+        }
+        else{
+             htmlPagination += `
+                <li class="pagination-item">
+                        <a href="/?page=1" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                </li>
+            `
+        }
+        let i = pageCurrent > 5 ? pageCurrent - 4 : 1 ;
+        if(i !== 1 ){
+            htmlPagination += `
+                 <li class="pagination-item"><a>.....</a></li>
+            ` 
+        }
+        for(; i <= (pageCurrent + 4) &&  i <= qtyPages ; i++) {
+            if(i == pageCurrent){
+                htmlPagination += `
+                    <li class="pagination-item pagination-item--active">
+                        <a href="" class="pagination-item__link">${i}</a>
+                    </li>
+                `
+            }else{
+                htmlPagination += `
+                    <li class="pagination-item">
+                        <a href="?page=${i}" class="pagination-item__link">${i}</a>
+                    </li>
+                `
+            }
+
+            if( i == pageCurrent + 4  && i < qtyPages){
+                htmlPagination += `<li class="pagination-item"><a>.....</a></li>`;
+            }
+        }
+        if(pageCurrent == qtyPages){
+            htmlPagination += `
+                <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                </li>
+            `;
+        }else{
+            htmlPagination += `
+            <li class="pagination-item">
+                        <a href="?page=${qtyPages}" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                </li>`;
+        }
+    }
+    container_pagination.innerHTML = htmlPagination;
+
+
+    if(pageCurrent === 1){
+        goBack.setAttribute('onclick','return false');
+    }
+    let indexCurrent = pageCurrent + 1;
+    let indexCurrentGoBack = pageCurrent -1;
+    indexPrevious.innerHTML = pageCurrent;
+    goUp.setAttribute('href', `?page=${indexCurrent}`);
+    goBack.setAttribute('href', `?page=${indexCurrentGoBack}`);
+    
+    
+</script>

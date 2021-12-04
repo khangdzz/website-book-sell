@@ -1,0 +1,113 @@
+<div class="body__admin">
+    <div class="grid__column-2 menu__admin-left">
+                <h3 class="dashboard">
+                    
+                    <i class="category__heading-icon fas fa-home"></i>
+                    <a href="/" class="">Dashboard</a>
+                    
+                </h3>
+                <nav class="category">
+                    <h3 class="admin__active category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon far fa-chart-bar"></i>
+                        <a href="/" class="">Thống Kê Website</a>
+                        
+                    </h3>
+                    <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-book-medical"></i>
+                        <a href="/admin/managerItems">Toàn Bộ Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        <i class="category__heading-icon fas fa-plus-circle"></i>
+                        <a href="/admin/addItems">Thêm Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-users"></i>
+                        <a href="/admin/managerUser">Quản Lí Người Dùng</a>
+                    </h3>
+                    
+                </nav>
+    </div>
+    <div class="grid__column-14 menu__admin-right">
+        <div class="menu__admin-right-order manager__product">
+            <table class="table">
+                <h3 class='menu__admin-right-order-nameRow'>Danh sách toàn bộ sản phẩm</h3>
+                <thead class="table-light  table-light-nameROw">
+                   <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col" style="">Hình ảnh</th>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+                </thead>
+                <tbody class="table-light-nameROw">
+                    {{#each book}}
+                        <tr>
+                            <th scope="row">{{sum @index 1}}</th>
+                            <td class="manager__items-image" >
+                                <img src="/img/{{this.image}}" alt="image" class="manager__items-img-detail">
+                            </td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.quantity}}</td>
+                           
+                            
+                            <td>
+                                <a id="manager__items-delete" href="" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-book">Xóa</a>
+                                <a href="/admin/update/{{this._id}}">Sửa</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div> 
+</div>
+
+<div class="modal" tabindex="-1" id="delete-book">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Checking delete!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure want to delete?</p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >NO</button>
+        <button id="btn-delete-book" type="button" class="btn btn-danger">YES!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form name="delete-form" method="POST" ></form>
+<script>
+     btnDeleteBook = document.querySelectorAll('#manager__items-delete');
+     modalDialogDelete = document.querySelector('.modal');
+
+     for(let i= 0 ; i< btnDeleteBook.length; i++){
+         btnDeleteBook[i].onclick = function(e) {
+             modalDialogDelete.style.visibility ='visible';
+         }
+     }
+
+    var BookID;
+    var exampleModal = document.getElementById('delete-book');
+    var deleteForm = document.forms['delete-form'];
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        
+        var button = event.relatedTarget;
+    
+        BookID = button.getAttribute('data-id')
+    });
+    let btnDelete = document.getElementById('btn-delete-book');
+    btnDelete.onclick = function(){
+        deleteForm.action = '/admin/distroy/' +BookID+ '?_method=DELETE'; 
+        deleteForm.submit();
+      
+   }
+</script>

@@ -1,0 +1,233 @@
+<div class="detail-product">
+ 
+    <div class="detail-product__container">
+        <div class="detail-product__left">
+        <img src="/img/{{this.image}}" alt="tag-img" class="detail-product__left-img">
+        <div class="detail-product__left-icon">
+            <span class="detail-product__left-share">Chia sẻ: 
+                <span class="detail-product__left-share-icon">
+                    <i class="fab fa-facebook-messenger detail-product__left-share-mes"></i>
+                    <i class="fab fa-facebook detail-product__left-share-fb"></i>   
+                    <i class="fab fa-pinterest detail-product__left-share-print"></i>
+                    <i class="fab fa-linkedin detail-product__left-share-link"></i>
+                </span>
+            </span>
+            <span class="detail-product__left-like">
+                <i class="far fa-heart detail-product__left-like-heart"></i>
+                Đã Thích({{this.fauvorite}})
+            </span>
+
+        </div>
+        </div>
+        <span class="get_id-product" style="display:none;">{{this._id}}</span>
+        <span class="get_email-user" style="display:none;">{{email}}</span>
+        <span class="get_img-user" style="display:none;">{{ imageAvatar}}</span>
+        <span class="get_name-user" style="display:none;">{{fullName}}</span>
+
+        <div class="detail-product__right">
+            <h3 class="detail-product__right-name">
+                <span class="detail-product__right-favourite">Yêu Thích</span>
+                    {{this.name}}
+            </h3>
+
+            <div class="detail-product__right-estimate">
+                <span class="detail-product__right-star">
+                    <span class="detail_product-underline">4.9</span>
+                    <span class="detail__star">
+                        <i class="detail-product__right-star__quantity fas fa-star"></i>
+                        <i class="detail-product__right-star__quantity fas fa-star"></i>
+                        <i class="detail-product__right-star__quantity fas fa-star"></i>
+                        <i class="detail-product__right-star__quantity fas fa-star"></i>
+                        <i class="detail-product__right-star__quantity fas fa-star"></i>
+
+                    </span>
+                </span>
+                <span class="detail-product__right-danhgia">
+                    
+                    <span class="detail_product-underline">196</span>
+                       
+                    <span class="detail-product__right-danhgia__quantity"> Đánh giá</span>
+                </span>
+                <span class="detail-product__right-sold">
+                    1.5k
+                    <span class="detail-product__right-sold__quantity"> Đã bán</span>
+                       
+                </span>
+
+            </div>
+
+
+            <div class="detail-product__right-price">
+                <span class="detail-product__right-price-old">  
+                    {{this.priceOld}} Đ
+                </span>
+                <span class="detail-product__right-price-new">  
+                    {{this.priceCurrent}} Đ
+                </span>
+                <span class="detail-product__right-price-discount">  
+                    47% GIẢM
+                </span>
+            </div>
+
+            <div class="detail-product__right-coupon">
+                <span class="detail-product__right-coupon__code">Mã giảm giá của shop     </span>
+                <span class="detail-product__right-coupon__cost">Giảm 2k</span>
+
+            </div>
+
+            <div class="detail-product__right-promotion">
+                <span class="detail-product__right-promotion-title">Combo khuyến mãi</span>
+                <span class="detail-product__right-promotion-infor">Mua 2 & giảm 10.000đ</span>
+
+            </div>
+             <div class="detail-product__right-delivery">
+                <div class="detail-product__right-delivery-title">Vận chuyển</div>
+                <div class="detail-product__right-delivery-infor">
+                    <p class="detail-product__right-delivery-free">
+                        <i class="detail-product__right-delivery-free-icon fas fa-comment-dollar"></i>
+                        Miễn phí vận chuyển
+                    </p>
+                    <p class="detail-product__right-delivery-address">
+                        <span class="come__address">
+                            <i class="fas fa-truck"></i>
+                            Vận chuyển tới
+                        </span>
+
+                        <span class="come__address-client">
+                           
+                            Quận Bắc Từ Liêm, Hà Nội
+                        </span>
+                        
+                    </p>
+                    <p class="detail-product__right-delivery-cost">
+                        <span class="come__cost">
+                           
+                            Phí vận chuyển
+                        </span>
+
+                        <span class="come__cost-client">
+                           
+                            0đ - 22.950đ
+                        </span>
+                    </p>
+
+                </div>  
+            </div>
+            <div class="detail-product__right-mount">
+                <span class="detail-product__right-mount_product">
+
+                    Số lượng
+                </span>
+
+            
+                {{!-- <span class="detail-product__right-mount_btn">-</span>
+                <span class="detail_mount">1</span>
+                <span class="detail-product__right-mount_btn1">+</span> --}}
+                <span class="detail-product__right-mount-avarable">{{this.quantity}} sản phẩn có sẵn</span>  
+                
+            </div>
+
+            <div class="detail-product__right-btn">
+                <a href="/cart/add/{{this._id}}" class="detail-product__right-cart-btn btn btn--primary">
+                    <i class="detail-product__right-cart-btn-icon fas fa-cart-plus"></i>
+                    Thêm vào giở hàng</a>
+                <a href="/cart/buyImediately/{{this._id}}" class="detail-productproduct__right-buy-btn btn btn--primary">Mua ngay</a>
+
+            </div>
+
+            
+        </div>
+    </div>
+
+    
+
+      
+
+   
+</div>
+<div class=" comment__detail-item">
+    <div class="grid contain_comment_total_user">
+
+        <h1 class="estimate-item">Đánh giá sản phẩm</h1>
+        {{#if checkState}}
+            <form class="comment__text-typing" method="POST" action="/book/comment">
+                <img src="/img/{{imageAvatar}}" alt="avatar" class="comment__detail-item-contain-img-user-typing">
+                <span class="comment__detail-item-contain-name-user-typing">{{fullName}}</span>
+                <textarea onfocus='myFunction()'  placeholder="Vui lòng nhập đánh giá của bạn để chúng tôi tiếp thu và cải thiện trong tương lai .... !!!" class="comment__text-typing-input" name="comment" rows="5" cols="160"></textarea>
+                <button type="submit"  class="submit_comment btn btn-primary">bình luận</button>
+            </form>
+        {{/if}}
+        {{#each this.comment}}
+            <div class="comment__detail-item-contain">
+                <img src="/img/{{this.avatar}}" alt="" class="comment__detail-item-contain-img">
+                <span class="comment__detail-item-contain-name">{{this.name}}</span></br>
+                <p class="comment__detail-item-contain-content">
+                   {{this.content}}
+                </p></br>
+                <p class="comment__detail-item-contain-time">{{this.time}}</p>
+            </div>
+        {{/each}}
+
+     
+
+
+       
+
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    let socket = io();
+    const inputComment = document.querySelector('.comment__text-typing-input');
+    const btnSubmitComment = document.querySelector('.submit_comment');
+    let form = document.querySelector('.comment__text-typing');
+    let idProduct = document.querySelector('.get_id-product');
+    let emailUser = document.querySelector('.get_email-user');
+    let contain = document.querySelector('.contain_comment_total_user');
+   
+
+   let nameUserActive = document.querySelector('.get_name-user');
+   let imgUserActive = document.querySelector('.get_img-user');
+
+
+    //function myFunction(){
+        //btnSubmitComment.style.display = 'block';
+    //}
+    let email = emailUser.textContent;
+    let idItem = idProduct.textContent;
+ 
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (inputComment.value) {
+            let content = inputComment.value;
+            socket.emit('comment', {content, email, idItem });
+            inputComment.value = '';
+        }
+    })
+    
+    let newCommet;
+    socket.on('comment', function (msg) {
+        let item = document.createElement('div');
+        item.classList.add('comment__detail-item-contain');
+        var today = new Date();
+        today= today.toDateString();
+        item.innerHTML = `
+                <img src="/img/${imgUserActive.textContent}" alt="" class="comment__detail-item-contain-img">
+                <span class="comment__detail-item-contain-name">${nameUserActive.textContent}</span></br>
+                <p class="comment__detail-item-contain-content"></br>
+                    ${msg}
+                </p></br>
+                <p class="comment__detail-item-contain-time">${today}</p>
+        `;
+        
+
+        contain.appendChild(item);
+    })
+
+   
+   
+
+
+
+   
+</script>

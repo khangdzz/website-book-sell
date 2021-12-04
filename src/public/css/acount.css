@@ -1,0 +1,400 @@
+.acount__container{
+    background-color: #f5f5f5;
+    
+}
+
+.acount__container-padding{
+    padding:80px 0;
+    display:flex;
+}
+
+.acount__container-left{
+    width:200px;
+}
+
+.acount__container-left-main{
+    height:80px;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid rgb(206 194 194 / 14%);
+    
+}
+.acount__container-left-main-right{
+    margin-left: 10px;
+    line-height: 15px;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+
+}
+.acount__container-left-main-img{
+    width: 30%;
+    border-radius: 50%; 
+    height:52px;
+    position: absolute;
+    top: 5px;
+}
+
+.acount__container-left-main-nameAcount{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-left: 16px;
+    position: absolute;
+    top: 0;
+    left: -103px;
+    right: -48px;
+}
+
+.acount__container-left-main-editAcount{
+    font-size: 1.8rem;
+    font-weight: 400;
+    color:  rgb(167, 158, 158);
+    position: absolute;
+    top: 25px;
+    left: -102px;
+    right: -0;
+
+}
+.acount__container-left-main-editAcount-icon{
+    font-size: 1rem;
+}
+
+
+.acount__container-left-bottom{
+    margin-top: 35px;
+    position: relative;
+
+}
+.acount__container-left-bottom-infor{
+    list-style: none;
+    font-size: 1.5rem;
+    margin: 0;
+    padding:0;
+}
+.acount__container-left-bottom-infor li{
+    padding-bottom: 20px;
+}
+.acount__container-left-bottom-acount-icon{
+    font-size: 2rem;
+    color: #b400ff8c;
+}
+.acount__container-left-bottom-acount{
+
+}
+.acount__container-left-bottom-billOrder,
+.acount__container-left-bottom-address{
+    padding-left: 25px;
+}
+
+.acount__container-left-bottom-password{
+    padding-left: 25px;
+
+}
+
+.acount__container-right{
+    margin-left: 11px;
+    width: 1040px;
+    /* background-color: #fff; */
+    
+    /* padding-left: 25px; */
+    border-radius: 1px;
+    position: relative;
+    margin-bottom: 30px;
+   
+}
+.acount_information_detail{
+    background-color: #fff;
+    padding-left: 25px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    padding-bottom: 30px;
+
+    /* display: none; */
+    
+
+}
+.acount_information_address_change{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-left: 25px;
+    display: none;
+}
+.acount__container-right-main{
+    
+    height:80px;
+    color: #443948cc;
+    position: relative;
+    border-bottom: 1px solid rgb(206, 194, 194);
+    
+
+}
+
+.acount__container-right-main-title{
+    font-weight: 500;
+    line-height:10px;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 22px;
+}
+
+.acount__container-right-main-subtitle{
+    font-weight: 400;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 43px;
+}
+
+
+
+
+.acount__container-right-body{
+    padding-top: 30px;
+    width: 100%;
+    display:flex;
+}
+
+.acount__container-right-body-left{
+    width: 90%;
+    font-size: 1.5rem;
+    
+    
+}
+
+.acount__container-right-body-left-nameAcount{
+    padding-bottom: 30px;
+    border-right: 1px solid rgb(206, 194, 194);
+}
+
+
+.acount__container-right-body-left-nameAcount-content{
+
+}
+.acount__container-right-body-left-name{
+    padding-bottom: 30px;
+    border-right: 1px solid rgb(206, 194, 194);
+}
+
+.acount__container-right-body-left-name-content{
+    width: 330px;
+    border: 1px solid #ccc;
+}
+
+.acount__container-right-body-left-email{
+    padding-bottom: 30px;
+    border-right: 1px solid rgb(206, 194, 194);
+}
+.acount__container-right-body-left-email-content{
+
+}
+
+.acount__container-right-body-left-phone{
+    padding-bottom: 30px;
+    border-right: 1px solid rgb(206, 194, 194);
+
+}
+.acount__container-right-body-left-phone-content{
+
+}
+#change_phoneNumber{
+    text-decoration-line: underline;
+    color: rgb(48, 95, 224);
+    cursor: pointer;
+}
+.acount__container-right-body-left-gender{
+    padding-bottom: 30px;
+
+}
+
+.acount__container-right-body-left-born{
+    padding-bottom: 30px;
+
+}
+
+.acount__container-right-body-left-born-content{
+    width: 330px;
+    border: 1px solid #ccc;
+}
+
+.acount__container-right-body-left-btn{
+    margin-left: 202px;
+    margin-bottom: 50px;
+}
+
+.acount__container-right-body-left-nameAcount-label,
+.acount__container-right-body-left-name-label,
+.acount__container-right-body-left-email-label,
+.acount__container-right-body-left-phone-label,
+.acount__container-right-body-left-gender-label,
+.acount__container-right-body-left-born-label{
+    display: inline-block;
+    width:200px;
+    
+}
+
+.acount__container-right-body-right{
+    text-align: center;
+    width: 600px;
+}
+
+.acount__container-right-body-right input{
+    padding-top: 20px;
+}
+.acount__container-right-body-right-img{
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+}
+#myOrder,
+#myAcount,
+#myAddress,
+#myPassword{
+    color: #000;
+    text-decoration: none;
+}
+.acount-information:hover{
+    color: var(--primary-color)!important;
+    cursor: pointer;
+}
+.acount__container-right-main-addresstitle{
+    line-height:81px;
+    font-size:2.1rem;
+}
+.acount__address-phone-change{
+    margin-top: 30px;
+    font-size: 1.6rem;
+}
+.acount__address-phone-change-nameAcount{
+    margin-bottom: 20px;
+}
+.acount__address-phone-change-nameAcount-label{
+    margin-right: 60px;
+
+}
+.acount__address-phone-change-nameAcount-content{
+
+}
+.acount__address-phone-change-nameAddress{
+    margin-bottom: 20px;
+}
+.acount__address-phone-change-name-label{
+    margin-right: 134px;
+
+}
+.acount__address-phone-change-name-content-label{
+    opacity: 0.6;
+    width: 400px;
+}
+.acount__address-phone-change-name-content{
+    opacity: 0.6;
+    width: 400px;
+    margin-left: 188px;
+}
+.acount__address-phone-change-phone{
+    margin-bottom: 20px;
+}
+.acount__address-phone-change-phone-label{
+    margin-right: 84px;
+
+}
+.acount__address-phone-change-phone-content{
+    width: 400px;
+    opacity: 0.6;
+}
+.acount__address-phone-change-btn{
+    margin: 70px 0 70px 250px;
+}
+
+
+/* history and current bill */
+.acount_information_bill{
+    /* display: none; */
+    
+}
+
+.status_bill{
+    height:55px;
+    line-height:55px;
+    font-size: 2rem;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+}
+
+.status_bill-delivery:hover,
+.status_bill-completeDelivery:hover,
+.status_bill-all:hover,
+.status_bill-waitToConfirm:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.status_bill-all{
+    padding-left: 12px;
+    width: 24%;
+    display:inline-block;
+    text-align:center;
+}
+.status_bill-waitToConfirm{
+    width: 25%;
+    text-align:center;
+    
+    display:inline-block;
+}
+.status_bill-delivery{
+    width: 24%;
+    text-align:center;
+    
+    display:inline-block;
+}
+.status_bill-completeDelivery{
+    width: 24%;
+    
+    text-align:center;
+    display:inline-block;
+}
+.status_bill-active{
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.search_bill{
+    margin: 15px 0;
+    height:44px;
+    line-height:44px;
+    background-color: #eaeaea;
+    position: relative;
+    border-radius:3px;
+}
+.search_bill-input-icon{
+    font-size: 2rem;
+    top: 12px;
+    left: 14px;
+    color: #bbbbbb;
+    /* font-weight: 400; */
+    position: absolute;
+}
+.search_bill-input{
+    padding-left: 50px;
+    width: 94.8%;
+    font-size: 1.4rem;
+    border: none;
+    border-radius:3px;
+    outline: none;
+    background-color:#eaeaea;
+}
+.history_bill-time-delivery{
+    width: 155px;
+}
+.btn_destroy_invoice{
+    color: #fff000;
+}
+.status__invoice{
+    margin-left: 30px;
+    margin-top: 30px;
+    color: var(--primary-color);
+}
+.container__buyItemChoosed-listItems-narbar-bill{
+    padding: 10px 0px 10px 30px;
+    width: 100%;
+}

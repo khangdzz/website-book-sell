@@ -1,0 +1,75 @@
+<div class="body__admin">
+    <div class="grid__column-2 menu__admin-left">
+                <h3 class="dashboard">
+                    
+                    <i class="category__heading-icon fas fa-home"></i>
+                    <a href="/" class="">Dashboard</a>
+                    
+                </h3>
+                <nav class="category">
+                    <h3 class="admin__active category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon far fa-chart-bar"></i>
+                        <a href="/" class="">Thống Kê Website</a>
+                        
+                    </h3>
+                    <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-book-medical"></i>
+                        <a href="/admin/managerItems">Toàn Bộ Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        <i class="category__heading-icon fas fa-plus-circle"></i>
+                        <a href="/admin/addItems">Thêm Sản Phẩm</a>
+                    </h3>
+                     <h3 class="category__heading menu__admin-category">
+                        
+                        <i class="category__heading-icon fas fa-users"></i>
+                        <a href="/admin/managerUser">Quản Lí Người Dùng</a>
+                    </h3>
+                    
+                </nav>
+    </div>
+    <div class="manager__items menu__admin-right"> 
+        <div class="menu__admin-right-order manager__product">
+            <table class="table">
+                <h3 class='menu__admin-right-order-nameRow'>Danh sách các tài khoản đã đăng kí</h3>
+                <thead class="table-light  table-light-nameROw">
+                   <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên người dùng</th>
+                    <th scope="col">Email người dùng</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Địa chỉ</th>
+                   
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Thời gian thoát ứng dụng</th>
+
+                </tr>
+                </thead>
+                <tbody class="table-light-nameROw">
+                    {{#each user}}
+                        <tr>
+                            <th scope="row">{{sum @index 1}}</th>
+                            <td>{{this.name}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.phoneNumber}}</td>
+                            <td>
+                                {{this.address.ngo}} ,
+                                {{this.address.phuong}} ,
+                                 {{this.address.huyen}} ,
+                                {{this.address.tinh}}
+                            </td>
+                            <td>{{this.status}}</td>
+                            <td>{{this.timeOut}}</td>
+                           
+                          
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div> 
+</div>
+
+ 

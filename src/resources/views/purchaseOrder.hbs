@@ -1,0 +1,131 @@
+<form class="acount__container" method="POST" action="/acount/update/{{this._id}}?_method=PUT">
+   <div class="grid acount__container-padding">
+        <div class="acount__container-left">
+            <div class="acount__container-left-main">
+
+                {{#if this.avartar}}
+                     <img src="/img/{{this.avartar}}" alt="Avartar" class="acount__container-left-main-img imageChange">
+                {{else}}
+                    <img src="/img/avartarEmpty.jpg" alt="Avartar" class="acount__container-left-main-img imageChange">
+                {{/if}}
+                <div class="acount__container-left-main-right">
+                    <p class="acount__container-left-main-nameAcount">{{this.name}}</p>
+                    <p class="acount__container-left-main-editAcount">
+                       <i class="fas fa-pencil-alt acount__container-left-main-editAcount-icon"></i>
+                        Sửa hồ sơ
+                    </p>
+               </div>
+            </div>
+            <div class="acount__container-left-bottom">
+                <ul class="acount__container-left-bottom-infor">
+                    <li class="acount__container-left-bottom-acount">
+                        <i class="fas fa-user-circle acount__container-left-bottom-acount-icon"></i>
+                        Tài khoản của tôi
+                    </li>
+                    <li class="acount__container-left-bottom-address">Địa chỉ</li>
+                    <li class="acount__container-left-bottom-address">
+                        <a href="/cart/purchaseOrder">Đơn mua</a>
+                    </li>
+                    <li class="acount__container-left-bottom-password">Đổi mật khẩu</li>
+                </ul>
+            </div>
+        
+        </div>
+
+
+        <div class="acount__container-right">
+            <div class="acount__container-right-main">
+                <h2 class="acount__container-right-main-title">Hồ Sơ Của Tôi</h2>
+                <h2 class="acount__container-right-main-subtitle">Quản lý thông tin hồ sơ để bảo mật tài khoản</h2>
+            </div>
+            <div class="acount__container-right-body">
+                <div class="acount__container-right-body-left">
+                    <div class="acount__container-right-body-left-nameAcount">
+                        <span class="acount__container-right-body-left-nameAcount-label">Email Đang Nhập</span>
+                        <span class="acount__container-right-body-left-nameAcount-content">{{this.email}}</span>
+                    </div>
+
+                    <div class="acount__container-right-body-left-name">
+                        <span class="acount__container-right-body-left-name-label">Tên</span>
+                        <input type="text"  value="{{this.name}}" name="name" class="acount__container-right-body-left-name-content">
+                    </div>
+
+                     <div class="acount__container-right-body-left-email">
+                        <span class="acount__container-right-body-left-email-label">Biệt danh</span>
+                        <span class="acount__container-right-body-left-email-content">
+                            <a href="">Thêm</a>
+
+                        </span>
+                    </div>
+
+                    <div class="acount__container-right-body-left-phone">
+                        <span class="acount__container-right-body-left-phone-label">Số Điện Thoại</span>
+                        <span class="acount__container-right-body-left-phone-content">{{this.phoneNumber}}
+                            <a href="">Thay đổi</a>
+
+                        </span>
+                    </div>
+
+
+                    <div id="" class="acount__container-right-body-left-gender">
+                        <span class="acount__container-right-body-left-gender-label">Giới Tính</span>
+                        <input class="acount__choose" type="radio"  name="gender" value="male">
+                        <label for="html">nam</label>
+                        <input class="acount__choose" type="radio"  name="gender" value="famale">
+                        <label for="css">nữ</label>
+                        <input class="acount__choose" type="radio"  name="gender" value="other">
+                        <label for="javascript">khác</label>
+                    </div>
+                    <span class="class__temp-getId" style="visibility:hidden" >{{this.gender}}</span>
+                    {{!-- style="visibility:hidden" --}}
+                    <div class="acount__container-right-body-left-born">
+                        <span class="acount__container-right-body-left-born-label">Ngày Sinh</span>
+                       <input type="text"  value="{{this.birth}}" name="birth" class="acount__container-right-body-left-born-content">
+                    </div> 
+
+                    <div class="acount__container-right-body-left-btn">
+                        <button  type="submit" class="acount__container-right-body-left-btn-label btn btn--primary">Lưu</button>
+                    </div>
+                    
+
+                </div>
+
+                <div class="acount__container-right-body-right" >
+
+
+                    {{#if this.avartar}}
+                        <img src="/img/{{this.avartar}}" alt="Avartar" class="acount__container-right-body-right-img imageChange">  
+                    {{else}}
+                        <img src="/img/avartarEmpty.jpg" alt="Avartar" class="acount__container-right-body-right-img imageChange"> 
+                    {{/if}}
+                  
+                    <br>
+                    <input type="file" id="myFile" name="avartar" class="acount__container_image" id="acount__container_imageID">
+                </div>
+
+            </div>
+
+        </div>
+   </div>
+
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    const checkGender = document.querySelectorAll('.acount__choose');
+    let container__getID = document.querySelector('.class__temp-getId');
+    let genderID = container__getID.textContent;
+    for(let i = 0; i < checkGender.length; i++) {
+        if(checkGender[i].value === genderID) {
+            checkGender[i].checked = true;
+        }
+    }
+    
+    $(document).ready(function() {
+            $('input[type="file"]').change(function(e) {
+              let nameImageUpdate = e.target.files[0].name;
+              $('.imageChange').attr('src',`/img/${nameImageUpdate}`);
+            });
+    });
+ 
+   
+</script>
